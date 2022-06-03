@@ -1,0 +1,226 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 134640 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:389), pid=5492, tid=0x0000000000002a5c
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_261-b12) (build 1.8.0_261-b12)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.261-b12 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001c837afc000):  JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=10844, stack(0x000000ab4c900000,0x000000ab4ca00000)]
+
+Stack: [0x000000ab4c900000,0x000000ab4ca00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x33e5f9]
+
+
+Current CompileTask:
+C2:    513  525       4       java.io.DataInputStream::readFully (63 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000001c837d61800 JavaThread "surefire-forkedjvm-command-thread" daemon [_thread_in_native, id=23808, stack(0x000000ab4ce00000,0x000000ab4cf00000)]
+  0x000001c837b11000 JavaThread "Service Thread" daemon [_thread_blocked, id=10956, stack(0x000000ab4cc00000,0x000000ab4cd00000)]
+  0x000001c837b10800 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=27216, stack(0x000000ab4cb00000,0x000000ab4cc00000)]
+  0x000001c837b07000 JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=2724, stack(0x000000ab4ca00000,0x000000ab4cb00000)]
+=>0x000001c837afc000 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=10844, stack(0x000000ab4c900000,0x000000ab4ca00000)]
+  0x000001c837ada800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=4280, stack(0x000000ab4c800000,0x000000ab4c900000)]
+  0x000001c8359b5000 JavaThread "Attach Listener" daemon [_thread_blocked, id=2788, stack(0x000000ab4c700000,0x000000ab4c800000)]
+  0x000001c8359b2000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=17672, stack(0x000000ab4c600000,0x000000ab4c700000)]
+  0x000001c83598b000 JavaThread "Finalizer" daemon [_thread_blocked, id=26640, stack(0x000000ab4c500000,0x000000ab4c600000)]
+  0x000001c83597b800 JavaThread "Reference Handler" daemon [_thread_blocked, id=19528, stack(0x000000ab4c400000,0x000000ab4c500000)]
+  0x000001c823935800 JavaThread "main" [_thread_in_vm, id=23960, stack(0x000000ab4ba00000,0x000000ab4bb00000)]
+
+Other Threads:
+  0x000001c835953800 VMThread [stack: 0x000000ab4c300000,0x000000ab4c400000] [id=22856]
+  0x000001c837bfb800 WatcherThread [stack: 0x000000ab4cd00000,0x000000ab4ce00000] [id=22696]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x00000000f0000000, size: 256 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ PSYoungGen      total 37888K, used 9041K [0x00000000fab00000, 0x00000000fd500000, 0x0000000100000000)
+  eden space 32768K, 12% used [0x00000000fab00000,0x00000000faed81d0,0x00000000fcb00000)
+  from space 5120K, 99% used [0x00000000fcb00000,0x00000000fcffc580,0x00000000fd000000)
+  to   space 5120K, 0% used [0x00000000fd000000,0x00000000fd000000,0x00000000fd500000)
+ ParOldGen       total 86016K, used 409K [0x00000000f0000000, 0x00000000f5400000, 0x00000000fab00000)
+  object space 86016K, 0% used [0x00000000f0000000,0x00000000f0066450,0x00000000f5400000)
+ Metaspace       used 8549K, capacity 8656K, committed 8960K, reserved 1056768K
+  class space    used 900K, capacity 944K, committed 1024K, reserved 1048576K
+
+Card table byte_map: [0x000001c8345b0000,0x000001c834640000] byte_map_base: 0x000001c833e30000
+
+Marking Bits: (ParMarkBitMap*) 0x000000006bc74fb0
+ Begin Bits: [0x000001c8346a0000, 0x000001c834aa0000)
+ End Bits:   [0x000001c834aa0000, 0x000001c834ea0000)
+
+Polling page: 0x000001c823ba0000
+
+CodeCache: size=245760Kb used=2689Kb max_used=2689Kb free=243070Kb
+ bounds [0x000001c8251f0000, 0x000001c8254a0000, 0x000001c8341f0000]
+ total_blobs=846 nmethods=558 adapters=201
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.511 Thread 0x000001c837b10800 nmethod 530 0x000001c82548de90 code [0x000001c82548dfe0, 0x000001c82548e198]
+Event: 0.511 Thread 0x000001c837b10800  549       1       org.aspectj.weaver.World::isJoinpointArrayConstructionEnabled (5 bytes)
+Event: 0.511 Thread 0x000001c837b10800 nmethod 549 0x000001c82548e210 code [0x000001c82548e360, 0x000001c82548e478]
+Event: 0.511 Thread 0x000001c837b10800  550       1       org.aspectj.weaver.ResolvedMemberImpl::getExceptions (5 bytes)
+Event: 0.511 Thread 0x000001c837b10800 nmethod 550 0x000001c82548e4d0 code [0x000001c82548e620, 0x000001c82548e738]
+Event: 0.511 Thread 0x000001c837b10800  551       1       org.aspectj.weaver.patterns.EllipsisTypePattern::isEllipsis (2 bytes)
+Event: 0.511 Thread 0x000001c837b10800 nmethod 551 0x000001c82548e790 code [0x000001c82548e8e0, 0x000001c82548e9f8]
+Event: 0.511 Thread 0x000001c837b10800  541       1       org.aspectj.weaver.World::getModel (5 bytes)
+Event: 0.511 Thread 0x000001c837b10800 nmethod 541 0x000001c82548ea50 code [0x000001c82548eba0, 0x000001c82548ecb8]
+Event: 0.511 Thread 0x000001c837b10800  552       3       org.aspectj.weaver.bcel.BcelObjectType::ensureGenericInfoProcessed (79 bytes)
+
+GC Heap History (2 events):
+Event: 0.472 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 37888K, used 32768K [0x00000000fab00000, 0x00000000fd500000, 0x0000000100000000)
+  eden space 32768K, 100% used [0x00000000fab00000,0x00000000fcb00000,0x00000000fcb00000)
+  from space 5120K, 0% used [0x00000000fd000000,0x00000000fd000000,0x00000000fd500000)
+  to   space 5120K, 0% used [0x00000000fcb00000,0x00000000fcb00000,0x00000000fd000000)
+ ParOldGen       total 86016K, used 0K [0x00000000f0000000, 0x00000000f5400000, 0x00000000fab00000)
+  object space 86016K, 0% used [0x00000000f0000000,0x00000000f0000000,0x00000000f5400000)
+ Metaspace       used 8333K, capacity 8432K, committed 8704K, reserved 1056768K
+  class space    used 873K, capacity 912K, committed 1024K, reserved 1048576K
+Event: 0.476 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 37888K, used 5105K [0x00000000fab00000, 0x00000000fd500000, 0x0000000100000000)
+  eden space 32768K, 0% used [0x00000000fab00000,0x00000000fab00000,0x00000000fcb00000)
+  from space 5120K, 99% used [0x00000000fcb00000,0x00000000fcffc580,0x00000000fd000000)
+  to   space 5120K, 0% used [0x00000000fd000000,0x00000000fd000000,0x00000000fd500000)
+ ParOldGen       total 86016K, used 409K [0x00000000f0000000, 0x00000000f5400000, 0x00000000fab00000)
+  object space 86016K, 0% used [0x00000000f0000000,0x00000000f0066450,0x00000000f5400000)
+ Metaspace       used 8333K, capacity 8432K, committed 8704K, reserved 1056768K
+  class space    used 873K, capacity 912K, committed 1024K, reserved 1048576K
+}
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 0.380 Thread 0x000001c823935800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 21> (0x00000000fc436ba0) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u261\295\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 368]
+Event: 0.391 Thread 0x000001c823935800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 11> (0x00000000fc4de2d0) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u261\295\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 368]
+Event: 0.391 Thread 0x000001c823935800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 11> (0x00000000fc4de6f0) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u261\295\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 368]
+Event: 0.391 Thread 0x000001c823935800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 11> (0x00000000fc4deb10) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u261\295\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 368]
+Event: 0.391 Thread 0x000001c823935800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 9> (0x00000000fc4dfe90) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u261\295\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 368]
+Event: 0.391 Thread 0x000001c823935800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 9> (0x00000000fc4e02b0) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u261\295\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 368]
+Event: 0.391 Thread 0x000001c823935800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 9> (0x00000000fc4e06d0) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u261\295\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 368]
+Event: 0.394 Thread 0x000001c823935800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 7> (0x00000000fc4ef530) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u261\295\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 368]
+Event: 0.394 Thread 0x000001c823935800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 7> (0x00000000fc4ef950) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u261\295\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 368]
+Event: 0.394 Thread 0x000001c823935800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException': 7> (0x00000000fc4efd70) thrown at [C:\jenkins\workspace\8-2-build-windows-amd64-cygwin\jdk8u261\295\hotspot\src\share\vm\interpreter\interpreterRuntime.cpp, line 368]
+
+Events (10 events):
+Event: 0.506 loading class org/apache/maven/surefire/booter/Command
+Event: 0.506 loading class org/apache/maven/surefire/booter/Command done
+Event: 0.507 loading class java/util/Hashtable$KeySet
+Event: 0.507 loading class java/util/Hashtable$KeySet done
+Event: 0.507 loading class org/apache/maven/surefire/booter/PropertiesWrapper
+Event: 0.507 loading class org/apache/maven/surefire/booter/PropertiesWrapper done
+Event: 0.508 loading class org/apache/maven/surefire/booter/CommandReader$1
+Event: 0.508 loading class org/apache/maven/surefire/booter/CommandReader$1 done
+Event: 0.511 loading class org/apache/maven/surefire/booter/KeyValueSource
+Event: 0.511 loading class org/apache/maven/surefire/booter/KeyValueSource done
+
+
+Dynamic libraries:
+0x00007ff740fc0000 - 0x00007ff741007000 	C:\Program Files\Java\jdk1.8.0_261\jre\bin\java.exe
+0x00007ffe39b90000 - 0x00007ffe39d85000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffe37d50000 - 0x00007ffe37e0d000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffe37400000 - 0x00007ffe376cd000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffe39080000 - 0x00007ffe3912e000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffe38460000 - 0x00007ffe384fe000 	C:\Windows\System32\msvcrt.dll
+0x00007ffe37be0000 - 0x00007ffe37c7c000 	C:\Windows\System32\sechost.dll
+0x00007ffe38780000 - 0x00007ffe388a5000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffe39900000 - 0x00007ffe39aa0000 	C:\Windows\System32\USER32.dll
+0x00007ffe376d0000 - 0x00007ffe376f2000 	C:\Windows\System32\win32u.dll
+0x00007ffe385a0000 - 0x00007ffe385ca000 	C:\Windows\System32\GDI32.dll
+0x00007ffe372a0000 - 0x00007ffe373ab000 	C:\Windows\System32\gdi32full.dll
+0x00007ffe37950000 - 0x00007ffe379ed000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffe377a0000 - 0x00007ffe378a0000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffe238a0000 - 0x00007ffe23b3a000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ffe382f0000 - 0x00007ffe38320000 	C:\Windows\System32\IMM32.DLL
+0x00007ffe22340000 - 0x00007ffe22355000 	C:\Program Files\Java\jdk1.8.0_261\jre\bin\vcruntime140.dll
+0x00007ffe13980000 - 0x00007ffe13a1b000 	C:\Program Files\Java\jdk1.8.0_261\jre\bin\msvcp140.dll
+0x000000006b480000 - 0x000000006bcec000 	C:\Program Files\Java\jdk1.8.0_261\jre\bin\server\jvm.dll
+0x00007ffe38590000 - 0x00007ffe38598000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffe30c90000 - 0x00007ffe30c9a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffe20030000 - 0x00007ffe20057000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffe1d980000 - 0x00007ffe1d989000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffe38320000 - 0x00007ffe3838b000 	C:\Windows\System32\WS2_32.dll
+0x00007ffe351a0000 - 0x00007ffe351b2000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffe30d80000 - 0x00007ffe30d90000 	C:\Program Files\Java\jdk1.8.0_261\jre\bin\verify.dll
+0x00007ffe13950000 - 0x00007ffe1397b000 	C:\Program Files\Java\jdk1.8.0_261\jre\bin\java.dll
+0x00007ffe31c10000 - 0x00007ffe31c42000 	C:\Program Files\Java\jdk1.8.0_261\jre\bin\instrument.dll
+0x00007ffe20a50000 - 0x00007ffe20a68000 	C:\Program Files\Java\jdk1.8.0_261\jre\bin\zip.dll
+0x00007ffe38930000 - 0x00007ffe39074000 	C:\Windows\System32\SHELL32.dll
+0x00007ffe353a0000 - 0x00007ffe35b34000 	C:\Windows\SYSTEM32\windows.storage.dll
+0x00007ffe39380000 - 0x00007ffe396d4000 	C:\Windows\System32\combase.dll
+0x00007ffe36d00000 - 0x00007ffe36d2c000 	C:\Windows\SYSTEM32\Wldp.dll
+0x00007ffe39aa0000 - 0x00007ffe39b4d000 	C:\Windows\System32\SHCORE.dll
+0x00007ffe38290000 - 0x00007ffe382e5000 	C:\Windows\System32\shlwapi.dll
+0x00007ffe371e0000 - 0x00007ffe371ff000 	C:\Windows\SYSTEM32\profapi.dll
+0x00007ffe31b40000 - 0x00007ffe31b4d000 	C:\Program Files\Java\jdk1.8.0_261\jre\bin\management.dll
+
+VM Arguments:
+jvm_args: -javaagent:C:\Users\User\.m2\repository/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar -Xmx256m 
+java_command: C:\Users\User\AppData\Local\Temp\surefire8919058554428010385\surefirebooter4662545301761415061.jar C:\Users\User\AppData\Local\Temp\surefire8919058554428010385 2022-06-02T14-31-30_829-jvmRun1 surefire2115994513302531778tmp surefire_03236735764436836679tmp
+java_class_path (initial): C:\Users\User\AppData\Local\Temp\surefire8919058554428010385\surefirebooter4662545301761415061.jar;C:\Users\User\.m2\repository/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_261
+JRE_HOME=C:\Program Files\Java\jdk1.8.0_261\jre
+CLASSPATH=.;C:\Program Files\Java\jdk1.8.0_261\lib;C:\Program Files\Java\jdk1.8.0_261\jre\lib
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;%JAVA_HOME%\bin;C:\Users\User\IdeaProjects\apache-maven-3.8.5\bin;C:\Program Files\Git\cmd;c:\Users\User\IdeaProjects\;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk1.8.0_261\bin;C:\Users\User\IdeaProjects\apache-maven-3.8.5\bin;
+USERNAME=User
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 19041 (10.0.19041.1706)
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 12, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 8190452k(675720k free), swap 21293296k(5140k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.261-b12) for windows-amd64 JRE (1.8.0_261-b12), built on Jun 18 2020 06:56:32 by "" with unknown MS VC++:1916
+
+time: Thu Jun  2 14:31:31 2022
+timezone: RTZ 2 (зима)
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

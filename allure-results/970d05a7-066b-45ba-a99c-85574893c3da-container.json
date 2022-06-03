@@ -1,0 +1,1 @@
+{"uuid":"970d05a7-066b-45ba-a99c-85574893c3da","name":"DiplomeProjectQase","start":1654001402324,"stop":1654001404848,"children":["3fe2da74-9b59-49c5-8c7e-513b78f17e46"],"befores":[{"name":"startBrowser","status":"passed","stage":"finished","description":"","start":1654001402352,"stop":1654001402364}]}

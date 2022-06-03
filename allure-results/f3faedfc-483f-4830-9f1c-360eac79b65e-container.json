@@ -1,0 +1,1 @@
+{"uuid":"f3faedfc-483f-4830-9f1c-360eac79b65e","name":"org.tms.tests.UI.QaseMainTest","start":1654001700079,"stop":1654001705606,"children":["9af691a2-79da-49a7-bbbd-31185ad6a93b"],"afters":[{"name":"stopBrowser","status":"passed","stage":"finished","description":"","start":1654001704884,"stop":1654001705560}]}
