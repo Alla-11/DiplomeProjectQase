@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.tms.models.Projects;
+import org.tms.models.UI.Projects;
 import org.tms.pages.QaseRepositoryPage;
 import org.tms.services.QaseProjectsServise;
 import org.tms.services.QaseLoginServise;
@@ -43,7 +43,7 @@ public class QasePublicRepositoryTest extends BaseTest{
     }
 
     @Test
-    public void createSuiteInPublicProject(){
+    public void createSuiteInPublicProjectTest(){
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewSuiteInPublicRepository(namePublicSuite);
         String actualNameSuiteInPublicRepository = qaseRepositoryPage.getNameSuiteInPublicProject();
         String expectedNameSuiteInPublicRepository = namePublicSuite;
@@ -58,14 +58,14 @@ public class QasePublicRepositoryTest extends BaseTest{
         Assert.assertEquals(actualNamesSuiteInPublicRepository,expectedNamesSuiteInPublicRepository);
     }
 
-    @Test(dependsOnMethods = "createSuiteInPublicProject")
+    @Test(dependsOnMethods = "createSuiteInPublicProjectTest")
     public void createCaseInPublicProjectSuiteTest(){
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewCaseInPublicRepository(namePublicCase);
         Integer actualNamberCaseInPublicRepository = Integer.valueOf(qaseRepositoryPage.getNumberOfCases());
         Assert.assertTrue(actualNamberCaseInPublicRepository > 0);
     }
 
-    @Test(dependsOnMethods = "createSuiteInPublicProject",dataProvider = "CaseData",dataProviderClass = DataProviders.class)
+    @Test(dependsOnMethods = "createSuiteInPublicProjectTest",dataProvider = "CaseData",dataProviderClass = DataProviders.class)
     public void createSomeCaseInPublicProjectSuiteTest(String nameCases){
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewCaseInPublicRepository(nameCases);
         Integer actualNamberCaseInPublicRepository = Integer.valueOf(qaseRepositoryPage.getNumberOfCases());

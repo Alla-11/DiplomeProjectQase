@@ -16,6 +16,7 @@ public class QaseSittingsProjectsPage extends BasePage{
 
     @Step("Show button 'Project Access'")
     public boolean showProjectAccessButton() {
+        waitVisibilityOf(environmentsButton);
         try {
             this.projectAccessButton.isDisplayed();
             return false;

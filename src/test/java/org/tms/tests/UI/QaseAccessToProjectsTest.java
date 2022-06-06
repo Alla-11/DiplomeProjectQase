@@ -5,7 +5,9 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.tms.models.Projects;
+import org.tms.adapters.QaseProjectsAdapter;
+import org.tms.models.API.Project;
+import org.tms.models.UI.Projects;
 import org.tms.pages.QaseProjectsPage;
 import org.tms.services.QaseAccessToProjectsServise;
 import org.tms.services.QaseLoginServise;
@@ -34,6 +36,7 @@ public class QaseAccessToProjectsTest extends BaseTest{
                 .build();
         qaseProjectsServise.createPublicProject(publicProject);
         log.info("Create public project before test methods");
+
         Projects privateProject = Projects.builder()
                 .nameProject(namePrivateProject)
                 .codeProject(codePrivateProject)

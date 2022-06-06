@@ -1,4 +1,4 @@
-package org.tms.models;
+package org.tms.models.UI;
 
 
 import lombok.Builder;

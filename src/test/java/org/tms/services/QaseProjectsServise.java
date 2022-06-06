@@ -1,7 +1,7 @@
 package org.tms.services;
 
 import io.qameta.allure.Step;
-import org.tms.models.Projects;
+import org.tms.models.UI.Projects;
 import org.tms.pages.QaseCreateProjectsPage;
 import org.tms.pages.QaseDeleteProjectPage;
 import org.tms.pages.QaseProjectsPage;

@@ -1,18 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Smoke" parallel="tests" thread-count="3">
-    <test name="Context Menu">
+    <test name="API Tests">
         <classes>
-            <class name = "org.tms.test.ContextMenuTest" />
-        </classes>
-    </test>
-    <test name="Dynamic Controls">
-        <classes>
-            <class name="org.tms.test.DynamicControlsTest" />
-        </classes>
-    </test>
-    <test name="File Uploader">
-        <classes>
-            <class name="org.tms.test.FileUploaderTest"  />
+            <class name = "org.tms.tests.API.QaseAPITest" />
         </classes>
     </test>
 </suite>

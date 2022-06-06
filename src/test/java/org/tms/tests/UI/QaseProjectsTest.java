@@ -3,7 +3,7 @@ package org.tms.tests.UI;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.tms.models.Projects;
+import org.tms.models.UI.Projects;
 import org.tms.pages.QaseRepositoryPage;
 import org.tms.services.QaseProjectsServise;
 import org.tms.services.QaseLoginServise;

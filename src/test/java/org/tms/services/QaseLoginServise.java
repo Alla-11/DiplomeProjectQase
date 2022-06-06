@@ -1,7 +1,7 @@
 package org.tms.services;
 
 import io.qameta.allure.Step;
-import org.tms.models.Users;
+import org.tms.models.UI.Users;
 import org.tms.pages.QaseProjectsPage;
 import org.tms.pages.QaseLoginPage;
 

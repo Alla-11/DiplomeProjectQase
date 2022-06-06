@@ -58,7 +58,7 @@ public class QaseProjectsPage extends BasePage {
 
     @Step("Get page to create a project")
     public QaseCreateProjectsPage getPageToCreateProject(){
-        waitVisibilityOf(createNewProjectButton);
+        waitForElementToBeClickable(createNewProjectButton);
         createNewProjectButton.click();
         return new QaseCreateProjectsPage();
     }
@@ -91,26 +91,6 @@ public class QaseProjectsPage extends BasePage {
         return new QaseDeleteProjectPage();
     }
 
-
-//    @Step("Displayed project")
-//    public boolean displayedProject(WebElement nameProject){
-//        boolean value = true;
-//        waitVisibilityOf(createNewProjectButton);
-//        if (nameProject == null){
-//            value = false;
-//        }
-//        return value;
-//    }
-//
-//    @Step("Displayed Public projects")
-//    public boolean displayedPublicProject(){
-//        return displayedProject(namePublicProject);
-//    }
-//
-//    @Step("Displayed Private projects")
-//    public boolean displayedPrivateProject(){
-//        return displayedProject(namePrivateProject);
-//    }
 
     @Step("Displayed Public project")
     public boolean displayedPublicProject() {
