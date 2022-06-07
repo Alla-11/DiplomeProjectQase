@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.tms.driver.DriverSingleton;
 
 
-
+import java.time.Duration;
 
 import static org.tms.utils.StringConstant.TIMEOUT;
 
@@ -27,6 +27,8 @@ public abstract class BasePage {
     }
 
 }
+
+
 
 
 

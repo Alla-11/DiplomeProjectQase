@@ -20,9 +20,9 @@ public class QaseCreateCasePage extends BasePage{
     }
 
     @Step("Click on save button")
-    public QaseCreateCasePage clickOnSaveButton(){
+    public QaseRepositoryPage clickOnSaveButton(){
         saveButton.click();
-        return this;
+        return new QaseRepositoryPage();
     }
 }
 

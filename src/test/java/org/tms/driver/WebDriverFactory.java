@@ -31,6 +31,7 @@ public class WebDriverFactory {
             default:{
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--incognito");
                 driver = new ChromeDriver(chromeOptions);}
         }
         driver.manage().window().maximize();

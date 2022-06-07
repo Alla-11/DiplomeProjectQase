@@ -1,9 +1,7 @@
 package org.tms.services;
 
 import io.qameta.allure.Step;
-import org.tms.pages.QaseCreateCasePage;
-import org.tms.pages.QaseRepositoryPage;
-
+import org.tms.pages.*;
 
 
 public class QasePublicRepositoryServise {
@@ -21,12 +19,13 @@ public class QasePublicRepositoryServise {
     @Step("Create new case in public repository")
     public QaseRepositoryPage createNewCaseInPublicRepository(String caseName){
         QaseCreateCasePage qaseCreateCasePage = qaseRepositoryPage.clickOnCreateCaseButtonInPublicProject();
-        qaseCreateCasePage.fillInTitle(caseName)
-                          .clickOnSaveButton();
+        qaseCreateCasePage.fillInTitle(caseName);
+        qaseCreateCasePage.clickOnSaveButton();
         return new QaseRepositoryPage();
     }
-
 }
+
+
 
 
 

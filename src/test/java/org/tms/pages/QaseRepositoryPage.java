@@ -3,7 +3,6 @@ package org.tms.pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import static org.tms.utils.StringConstant.namePublicSuite;
 
 
@@ -35,12 +34,9 @@ public class QaseRepositoryPage extends BasePage{
 
 
 
-
-
     @Step("Get name project on repository page")
     public String getNameProject(String nameProject){
         waitVisibilityOf(createSuitesButton);
-        System.out.println(String.format(nameProject,nameProjects) + "имя нового проекта");
         return String.format(nameProject,nameProjects);
     }
 

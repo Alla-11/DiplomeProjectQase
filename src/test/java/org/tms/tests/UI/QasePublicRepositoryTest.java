@@ -2,7 +2,6 @@ package org.tms.tests.UI;
 
 import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.tms.models.UI.Projects;
@@ -21,6 +20,7 @@ public class QasePublicRepositoryTest extends BaseTest{
     private QaseProjectsServise qaseProjectsServise;
     private QasePublicRepositoryServise qasePublicRepositoryServise;
 
+
     @BeforeClass
     public void openPublicProjectTest(){
         qaseLoginServise = new QaseLoginServise();
@@ -36,7 +36,7 @@ public class QasePublicRepositoryTest extends BaseTest{
         qasePublicRepositoryServise = new QasePublicRepositoryServise();
     }
 
-    @Test
+    @Test(groups = "create")
     public void createSuiteInPublicProjectTest(){
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewSuiteInPublicRepository(namePublicSuite);
         String actualNameSuiteInPublicRepository = qaseRepositoryPage.getNameSuiteInPublicProject();
@@ -44,7 +44,7 @@ public class QasePublicRepositoryTest extends BaseTest{
         Assert.assertEquals(actualNameSuiteInPublicRepository,expectedNameSuiteInPublicRepository);
     }
 
-    @Test (dataProvider = "SuiteData",dataProviderClass = DataProviders.class)
+    @Test (dataProvider = "SuiteData",dataProviderClass = DataProviders.class, groups = "create")
     public void createSomeSuiteInPublicProjectTest(String suiteNames){
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewSuiteInPublicRepository(suiteNames);
         String actualNamesSuiteInPublicRepository = qaseRepositoryPage.getNameSuiteInPublicProject();
@@ -52,27 +52,22 @@ public class QasePublicRepositoryTest extends BaseTest{
         Assert.assertEquals(actualNamesSuiteInPublicRepository,expectedNamesSuiteInPublicRepository);
     }
 
-    @Test(dependsOnMethods = "createSuiteInPublicProjectTest")
+    @Test(dependsOnMethods = "createSuiteInPublicProjectTest",groups = "create")
     public void createCaseInPublicProjectSuiteTest(){
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewCaseInPublicRepository(namePublicCase);
         String actualNameCaseInPublicRepository = qaseRepositoryPage.getNameOfCases(namePublicCase);
         Assert.assertEquals(actualNameCaseInPublicRepository,namePublicCase);
     }
 
-    @Test(dependsOnMethods = "createSuiteInPublicProjectTest",dataProvider = "CaseData",dataProviderClass = DataProviders.class)
+    @Test(dependsOnMethods = "createSuiteInPublicProjectTest",dataProvider = "CaseData",dataProviderClass = DataProviders.class, groups = "create")
     public void createSomeCaseInPublicProjectSuiteTest(String nameCases){
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewCaseInPublicRepository(nameCases);
         String actualNamesCaseInPublicRepository = qaseRepositoryPage.getNameOfCases(nameCases);
         Assert.assertEquals(actualNamesCaseInPublicRepository,nameCases);
     }
-
-    @AfterClass
-    public void deletePublicProjectTest(){
-
-        qaseProjectsServise.deletePublicProject();
-        log.info("delete public project after test methods");
-    }
 }
+
+
 
 
 

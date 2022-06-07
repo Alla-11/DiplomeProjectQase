@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.tms.models.UI.Projects;
 import org.tms.pages.QaseRepositoryPage;
+import org.tms.services.QaseAccessToProjectsServise;
 import org.tms.services.QaseProjectsServise;
 import org.tms.services.QaseLoginServise;
 
@@ -14,12 +15,14 @@ public class QaseProjectsTest extends BaseTest {
 
     private QaseLoginServise qaseLoginServise;
     private QaseProjectsServise qaseProjectsServise;
+    private QaseAccessToProjectsServise qaseAccessToProjectsServise;
 
     @BeforeClass
     public void openProjectsPageTest(){
         qaseLoginServise = new QaseLoginServise();
-        qaseProjectsServise = new QaseProjectsServise();
         qaseLoginServise.loginOnQaseMainPageWithValidData();
+        qaseProjectsServise = new QaseProjectsServise();
+        qaseAccessToProjectsServise = new QaseAccessToProjectsServise();
     }
 
     @Test
@@ -50,13 +53,24 @@ public class QaseProjectsTest extends BaseTest {
     }
 
     @Test(dependsOnMethods = "createPublicProjectTest")
+    public void showAccessToPublicProjectTest(){
+        Assert.assertTrue(qaseAccessToProjectsServise.showAccessToPublicProject());
+
+    }
+
+    @Test(dependsOnMethods = "createPrivateProjectTest")
+    public void showAccessToPrivateProjectTest(){
+        Assert.assertFalse(qaseAccessToProjectsServise.showAccessToPrivateProject());
+    }
+
+    @Test(dependsOnMethods = "showAccessToPublicProjectTest")
     public void deletePublicProjectTest(){
         qaseProjectsServise.deletePublicProject();
         Assert.assertTrue(qaseProjectsServise.displayedPublicProjectsOnProjectsPage());
 
     }
 
-    @Test(dependsOnMethods = "createPrivateProjectTest")
+    @Test(dependsOnMethods = "showAccessToPrivateProjectTest")
     public void deletePrivateProjectTest(){
         qaseProjectsServise.deletePrivateProject();
         Assert.assertTrue(qaseProjectsServise.displayedPrivateProjectsOnProjectsPage());

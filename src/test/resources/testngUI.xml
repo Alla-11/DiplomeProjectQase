@@ -15,9 +15,9 @@
             <class name="org.tms.tests.UI.QasePublicRepositoryTest"  />
         </classes>
     </test>
-    <test name="UIQaseAccessToProjectTest">
+    <test name="UIQaseDeletePublicProjectTest">
         <classes>
-            <class name="org.tms.tests.UI.QaseAccessToProjectsTest"  />
+            <class name="org.tms.tests.UI.QaseDeletePublicProjectsTest" />
         </classes>
     </test>
 </suite>

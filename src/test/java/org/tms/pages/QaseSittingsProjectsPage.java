@@ -5,13 +5,17 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
 public class QaseSittingsProjectsPage extends BasePage{
 
     @FindBy(xpath = "//a[contains(text(),'Project Access')]")
     private WebElement projectAccessButton;
 
-    @FindBy(xpath = "//a[contains(text(),'Environments')]")
+    @FindBy(xpath = "//*[contains(text(),'Environments')]")
     private WebElement environmentsButton;
+
+    @FindBy(xpath = "//*[contains(text(),' Delete project')]")
+    private WebElement deleteProjectButton;
 
 
     @Step("Show button 'Project Access'")
@@ -23,6 +27,13 @@ public class QaseSittingsProjectsPage extends BasePage{
         } catch (NoSuchElementException e) {
             return true;
         }
+    }
+
+    @Step("Click on 'Delete project' button on setting page")
+    public QaseDeleteProjectPage clickOnDeleteProjectButtonOnSettingPage(){
+        waitVisibilityOf(deleteProjectButton);
+        deleteProjectButton.click();
+        return new QaseDeleteProjectPage();
     }
 }
 
