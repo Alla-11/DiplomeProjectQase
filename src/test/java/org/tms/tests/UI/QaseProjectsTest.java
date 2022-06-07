@@ -30,7 +30,7 @@ public class QaseProjectsTest extends BaseTest {
                                     .descriptionProject(descriptionPublicProject)
                                     .build();
         QaseRepositoryPage qaseRepositoryPage = qaseProjectsServise.createPublicProject(publicProject);
-        String actualPublicNameProject = qaseRepositoryPage.getNameProject();
+        String actualPublicNameProject = qaseRepositoryPage.getNameProject(namePublicProject);
         String expectedPublicNameProject = namePublicProject;
         Assert.assertEquals(actualPublicNameProject,expectedPublicNameProject);
     }
@@ -44,7 +44,7 @@ public class QaseProjectsTest extends BaseTest {
                                           .descriptionProject(descriptionPrivateProject)
                                           .build();
         QaseRepositoryPage qaseRepositoryPage = qaseProjectsServise.createPrivateProject(privateProject);
-        String actualPrivateNameProject = qaseRepositoryPage.getNameProject();
+        String actualPrivateNameProject = qaseRepositoryPage.getNameProject(namePrivateProject);
         String expectedPrivateNameProject = namePrivateProject;
         Assert.assertEquals(actualPrivateNameProject,expectedPrivateNameProject);
     }

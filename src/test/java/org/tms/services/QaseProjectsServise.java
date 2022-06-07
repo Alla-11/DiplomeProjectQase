@@ -14,6 +14,7 @@ public class QaseProjectsServise {
     protected QaseDeleteProjectPage qaseDeleteProjectPage = new QaseDeleteProjectPage();
 
 
+
     @Step("Create public project")
     public QaseRepositoryPage createPublicProject(Projects publicProjects){
         qaseProjectsPage.getProjectsPage();

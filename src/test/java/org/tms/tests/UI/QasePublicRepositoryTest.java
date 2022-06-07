@@ -36,12 +36,6 @@ public class QasePublicRepositoryTest extends BaseTest{
         qasePublicRepositoryServise = new QasePublicRepositoryServise();
     }
 
-    @AfterClass
-    public void deletePublicProjectTest(){
-        qaseProjectsServise.deletePublicProject();
-        log.info("delete public project after test methods");
-    }
-
     @Test
     public void createSuiteInPublicProjectTest(){
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewSuiteInPublicRepository(namePublicSuite);
@@ -61,15 +55,24 @@ public class QasePublicRepositoryTest extends BaseTest{
     @Test(dependsOnMethods = "createSuiteInPublicProjectTest")
     public void createCaseInPublicProjectSuiteTest(){
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewCaseInPublicRepository(namePublicCase);
-        Integer actualNamberCaseInPublicRepository = Integer.valueOf(qaseRepositoryPage.getNumberOfCases());
-        Assert.assertTrue(actualNamberCaseInPublicRepository > 0);
+        String actualNameCaseInPublicRepository = qaseRepositoryPage.getNameOfCases(namePublicCase);
+        Assert.assertEquals(actualNameCaseInPublicRepository,namePublicCase);
     }
 
     @Test(dependsOnMethods = "createSuiteInPublicProjectTest",dataProvider = "CaseData",dataProviderClass = DataProviders.class)
     public void createSomeCaseInPublicProjectSuiteTest(String nameCases){
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewCaseInPublicRepository(nameCases);
-        Integer actualNamberCaseInPublicRepository = Integer.valueOf(qaseRepositoryPage.getNumberOfCases());
-        Assert.assertTrue(actualNamberCaseInPublicRepository > 0);
+        String actualNamesCaseInPublicRepository = qaseRepositoryPage.getNameOfCases(nameCases);
+        Assert.assertEquals(actualNamesCaseInPublicRepository,nameCases);
+    }
+
+    @AfterClass
+    public void deletePublicProjectTest(){
+
+        qaseProjectsServise.deletePublicProject();
+        log.info("delete public project after test methods");
     }
 }
+
+
 

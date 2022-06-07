@@ -30,20 +30,20 @@ public class QaseAccessToProjectsTest extends BaseTest{
         qaseLoginServise.loginOnQaseMainPageWithValidData();
         qaseProjectsServise = new QaseProjectsServise();
         Projects publicProject = Projects.builder()
-                .nameProject(namePublicProject)
-                .codeProject(codePublicProject)
-                .descriptionProject(descriptionPublicProject)
-                .build();
+                                         .nameProject(namePublicProject)
+                                         .codeProject(codePublicProject)
+                                         .descriptionProject(descriptionPublicProject)
+                                         .build();
         qaseProjectsServise.createPublicProject(publicProject);
-        log.info("Create public project before test methods");
+        log.info("Created public project before test methods");
 
         Projects privateProject = Projects.builder()
-                .nameProject(namePrivateProject)
-                .codeProject(codePrivateProject)
-                .descriptionProject(descriptionPrivateProject)
-                .build();
+                                          .nameProject(namePrivateProject)
+                                          .codeProject(codePrivateProject)
+                                          .descriptionProject(descriptionPrivateProject)
+                                          .build();
         qaseProjectsServise.createPrivateProject(privateProject);
-        log.info("Create private project before test methods");
+        log.info("Created private project before test methods");
         qaseAccessToProjectsServise = new QaseAccessToProjectsServise();
         qaseProjectsPage = new QaseProjectsPage();
     }
@@ -62,7 +62,7 @@ public class QaseAccessToProjectsTest extends BaseTest{
 
     @AfterClass
     public void deletePublicProjectTest(){
-        qaseProjectsPage.getProjectsPage();
+        //qaseProjectsPage.getProjectsPage();
         qaseProjectsServise.deletePublicProject();
         qaseProjectsServise.deletePrivateProject();
     }

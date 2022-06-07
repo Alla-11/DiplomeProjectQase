@@ -30,12 +30,14 @@ public class QaseLoginPage extends BasePage {
 
     @Step ("Entering user name")
     public QaseLoginPage fillInUsername(String login){
+        waitVisibilityOf(userName);
         userName.sendKeys(login);
         return this;
     }
 
     @Step ("Entering password")
     public QaseLoginPage fillInPassword(String keyPassword){
+        waitVisibilityOf(password);
         password.sendKeys(keyPassword);
         return this;
     }

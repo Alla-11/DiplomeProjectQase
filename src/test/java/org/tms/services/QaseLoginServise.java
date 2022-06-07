@@ -7,7 +7,7 @@ import org.tms.pages.QaseLoginPage;
 
 public class QaseLoginServise {
 
-    private static final String QASE_MAIN_PAGE = "https://app.qase.io/login";
+    private static final String URL_QASE_MAIN_PAGE = "https://app.qase.io/login";
 
 
     protected QaseLoginPage qaseLoginPage = new QaseLoginPage();
@@ -15,7 +15,7 @@ public class QaseLoginServise {
 
     @Step ("Autorization on qase.io with valid data")
     public QaseProjectsPage loginOnQaseMainPageWithValidData(){
-        qaseLoginPage.openPage(QASE_MAIN_PAGE)
+        qaseLoginPage.openPage(URL_QASE_MAIN_PAGE)
                      .fillInUsername(user.getValidName())
                      .fillInPassword(user.getValidPassword())
                      .clickLoginButton();
@@ -24,7 +24,7 @@ public class QaseLoginServise {
 
     @Step("Autorization on qase.io with invalid password")
     public String loginOnQaseMainPageWithInvalidData(){
-        qaseLoginPage.openPage(QASE_MAIN_PAGE)
+        qaseLoginPage.openPage(URL_QASE_MAIN_PAGE)
                      .fillInUsername(user.getValidName())
                      .fillInPassword(user.getInvalidPassword())
                      .clickLoginButton();
@@ -33,6 +33,7 @@ public class QaseLoginServise {
     }
 
 }
+
 
 
 

@@ -14,11 +14,11 @@ public class QaseProjectsPage extends BasePage {
     @FindBy(xpath = "//a[@id='createButton']")
     private WebElement createNewProjectButton;
 
-    @FindBy(xpath = "//span[contains(text(),'Projects')]/ancestor::a[@class='nav-link menu-link']")
+    @FindBy(xpath = "//a[contains(text(),'Projects')]")
     private WebElement menuProjectsButton;
 
     /*
-    локаторы ниже не превращались в переменные т.к. подобрать не зависящие от названия локаторы я не смогла и под эти
+    локаторы ниже не превращались в переменные т.к. подобрать не зависящие от названия проекта локаторы я не смогла и под эти
     локаторы настроены waiter, иначе все будет ломаться
      */
 
@@ -58,20 +58,21 @@ public class QaseProjectsPage extends BasePage {
 
     @Step("Get page to create a project")
     public QaseCreateProjectsPage getPageToCreateProject(){
-        waitForElementToBeClickable(createNewProjectButton);
+        waitVisibilityOf(createNewProjectButton);
         createNewProjectButton.click();
         return new QaseCreateProjectsPage();
     }
 
-    @Step("Choose option select")
-    public QaseProjectsPage chooseDropdownForProject (WebElement dropdown){
+
+    @Step("Сhose a dropdown for the project")
+    public QaseProjectsPage choseDropdownForProject (WebElement dropdown){
         waitVisibilityOf(dropdown);
         dropdown.click();
         return this;
     }
 
-    @Step("Choose option select")
-    public QaseDeleteProjectPage chooseOptionDropdown(WebElement valueOfDropdown){
+    @Step("Chose option dropdown")
+    public QaseDeleteProjectPage choseOptionDropdown(WebElement valueOfDropdown){
         waitVisibilityOf(valueOfDropdown);
         valueOfDropdown.click();
         return new QaseDeleteProjectPage();
@@ -79,15 +80,15 @@ public class QaseProjectsPage extends BasePage {
 
     @Step("Click on delete Public project")
     public QaseDeleteProjectPage clickDropdownDeletePublicProject(){
-        chooseDropdownForProject(dropdownPublicProject);
-        chooseOptionDropdown(valueDeleteDropdownPublicProject);
+        choseDropdownForProject(dropdownPublicProject);
+        choseOptionDropdown(valueDeleteDropdownPublicProject);
         return new QaseDeleteProjectPage();
     }
 
     @Step("Click on delete Private project")
     public QaseDeleteProjectPage clickDropdownDeletePrivateProject(){
-        chooseDropdownForProject(dropdownPrivateProject);
-        chooseOptionDropdown(valueDeleteDropdownPrivateProject);
+        choseDropdownForProject(dropdownPrivateProject);
+        choseOptionDropdown(valueDeleteDropdownPrivateProject);
         return new QaseDeleteProjectPage();
     }
 
@@ -113,7 +114,6 @@ public class QaseProjectsPage extends BasePage {
             return true;
         }
     }
-
 
     @Step("Click on public project")
     public QaseRepositoryPage clickOnPublicProject(){
