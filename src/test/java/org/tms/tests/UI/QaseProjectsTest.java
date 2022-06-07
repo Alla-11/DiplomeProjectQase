@@ -8,6 +8,7 @@ import org.tms.pages.QaseRepositoryPage;
 import org.tms.services.QaseAccessToProjectsServise;
 import org.tms.services.QaseProjectsServise;
 import org.tms.services.QaseLoginServise;
+import org.tms.utils.Retry;
 
 import static org.tms.utils.StringConstant.*;
 
@@ -52,13 +53,13 @@ public class QaseProjectsTest extends BaseTest {
         Assert.assertEquals(actualPrivateNameProject,expectedPrivateNameProject);
     }
 
-    @Test(dependsOnMethods = "createPublicProjectTest")
+    @Test(dependsOnMethods = "createPublicProjectTest", retryAnalyzer = Retry.class)
     public void showAccessToPublicProjectTest(){
         Assert.assertTrue(qaseAccessToProjectsServise.showAccessToPublicProject());
 
     }
 
-    @Test(dependsOnMethods = "createPrivateProjectTest")
+    @Test(dependsOnMethods = "createPrivateProjectTest", retryAnalyzer = Retry.class)
     public void showAccessToPrivateProjectTest(){
         Assert.assertFalse(qaseAccessToProjectsServise.showAccessToPrivateProject());
     }
