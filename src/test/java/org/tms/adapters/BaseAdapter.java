@@ -12,7 +12,7 @@ public class BaseAdapter {
     private static final String TOKEN_VALUE = "d1d4ed11a18254455b2d3433f4a6b74f78127f73";
     Gson converter = new Gson();
 
-    public Response post (String url, String body){
+    protected Response post(String url, String body){
         return
                 given()
                         .header(TOKEN_NAME,TOKEN_VALUE)
@@ -25,7 +25,7 @@ public class BaseAdapter {
                         .extract().response();
     }
 
-    public String delete(String url){
+    protected String delete(String url){
         return
                 given()
                         .header(TOKEN_NAME, TOKEN_VALUE)

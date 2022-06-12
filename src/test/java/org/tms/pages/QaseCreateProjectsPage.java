@@ -60,9 +60,8 @@ public class QaseCreateProjectsPage extends BasePage {
     }
 
     @Step("Click create project")
-    public QaseRepositoryPage clickCreateProject(){
+    public void clickCreateProject(){
         createProjectButton.click();
-        return new QaseRepositoryPage();
     }
 
 }

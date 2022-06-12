@@ -10,8 +10,8 @@ public class QaseLoginServise {
     private static final String URL_QASE_MAIN_PAGE = "https://app.qase.io/login";
 
 
-    protected QaseLoginPage qaseLoginPage = new QaseLoginPage();
-    protected Users user = new Users();
+    private final QaseLoginPage qaseLoginPage = new QaseLoginPage();
+    private final Users user = new Users();
 
     @Step ("Autorization on qase.io with valid data")
     public QaseProjectsPage loginOnQaseMainPageWithValidData(){
@@ -28,8 +28,7 @@ public class QaseLoginServise {
                      .fillInUsername(user.getValidName())
                      .fillInPassword(user.getInvalidPassword())
                      .clickLoginButton();
-        String errorText = qaseLoginPage.getLoginErrorMessage();
-        return errorText;
+        return qaseLoginPage.getLoginErrorMessage();
     }
 
 }

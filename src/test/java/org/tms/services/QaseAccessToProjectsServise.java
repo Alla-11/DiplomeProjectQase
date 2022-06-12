@@ -16,8 +16,7 @@ public class QaseAccessToProjectsServise {
         qaseProjectsPage.getProjectsPage();
         qaseProjectsPage.clickOnPublicProject();
         qaseRepositoryPage.clickSittingsButton();
-        boolean valueAccessToPublicProject = qaseSittingsProjectsPage.showProjectAccessButton();
-        return valueAccessToPublicProject;
+        return qaseSittingsProjectsPage.showProjectAccessButton();
     }
 
     @Step("Access to private project")
@@ -25,8 +24,7 @@ public class QaseAccessToProjectsServise {
         qaseProjectsPage.getProjectsPage();
         qaseProjectsPage.clickOnPrivateProject();
         qaseRepositoryPage.clickSittingsButton();
-        boolean valueAccessToPrivateProject = qaseSittingsProjectsPage.showProjectAccessButton();
-        return valueAccessToPrivateProject;
+        return qaseSittingsProjectsPage.showProjectAccessButton();
     }
 
 }

@@ -12,10 +12,9 @@ public class QaseDeleteProjectPage extends BasePage {
 
 
     @Step("Click on 'Delete Project' button")
-    public QaseProjectsPage clickOnDeleteProject(){
+    public void clickOnDeleteProject(){
         waitVisibilityOf(deleteProjectButton);
         deleteProjectButton.click();
-        return new QaseProjectsPage();
     }
 
 }

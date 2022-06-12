@@ -14,13 +14,12 @@ import static org.tms.utils.StringConstant.*;
 
 public class QaseProjectsTest extends BaseTest {
 
-    private QaseLoginServise qaseLoginServise;
     private QaseProjectsServise qaseProjectsServise;
     private QaseAccessToProjectsServise qaseAccessToProjectsServise;
 
     @BeforeClass
     public void openProjectsPageTest(){
-        qaseLoginServise = new QaseLoginServise();
+        QaseLoginServise qaseLoginServise = new QaseLoginServise();
         qaseLoginServise.loginOnQaseMainPageWithValidData();
         qaseProjectsServise = new QaseProjectsServise();
         qaseAccessToProjectsServise = new QaseAccessToProjectsServise();

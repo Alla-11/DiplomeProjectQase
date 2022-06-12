@@ -8,12 +8,11 @@ import org.tms.services.QaseProjectsServise;
 
 public class QaseDeletePublicProjectsTest extends BaseTest{
 
-    private QaseLoginServise qaseLoginServise;
     private QaseProjectsServise qaseProjectsServise;
 
     @BeforeClass
     public void openProjectsPageTest(){
-        qaseLoginServise = new QaseLoginServise();
+        QaseLoginServise qaseLoginServise = new QaseLoginServise();
         qaseProjectsServise = new QaseProjectsServise();
         qaseLoginServise.loginOnQaseMainPageWithValidData();
     }

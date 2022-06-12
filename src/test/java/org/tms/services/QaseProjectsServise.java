@@ -41,19 +41,17 @@ public class QaseProjectsServise {
 
 
     @Step("Delete public project")
-    public QaseProjectsPage deletePublicProject(){
+    public void deletePublicProject(){
         qaseProjectsPage.getProjectsPage();
         qaseProjectsPage.clickDropdownDeletePublicProject();
         qaseDeleteProjectPage.clickOnDeleteProject();
-        return new QaseProjectsPage();
     }
 
     @Step("Delete private project")
-    public QaseProjectsPage deletePrivateProject(){
+    public void deletePrivateProject(){
         qaseProjectsPage.getProjectsPage();
         qaseProjectsPage.clickDropdownDeletePrivateProject();
         qaseDeleteProjectPage.clickOnDeleteProject();
-        return new QaseProjectsPage();
     }
 
     @Step("Displayed projects")

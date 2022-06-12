@@ -1,21 +1,21 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="UI" parallel="tests" thread-count="1">
-    <test name="UIQaseLoginPage">
+    <test name="LoginPage">
         <classes>
             <class name = "org.tms.tests.UI.QaseLoginTest" />
         </classes>
     </test>
-    <test name="UIQaseProjectsTests">
+    <test name="CreateAndAccessToProject">
         <classes>
             <class name="org.tms.tests.UI.QaseProjectsTest" />
         </classes>
     </test>
-    <test name="UIQasePublicRepositoryTest">
+    <test name="CreateSuitesAndCases">
         <classes>
             <class name="org.tms.tests.UI.QasePublicRepositoryTest"  />
         </classes>
     </test>
-    <test name="UIQaseDeletePublicProjectTest">
+    <test name="DeletePublicProject">
         <classes>
             <class name="org.tms.tests.UI.QaseDeletePublicProjectsTest" />
         </classes>

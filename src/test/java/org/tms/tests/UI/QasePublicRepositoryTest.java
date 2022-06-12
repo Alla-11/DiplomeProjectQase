@@ -16,16 +16,14 @@ import static org.tms.utils.StringConstant.*;
 @Log4j2
 public class QasePublicRepositoryTest extends BaseTest{
 
-    private QaseLoginServise qaseLoginServise;
-    private QaseProjectsServise qaseProjectsServise;
     private QasePublicRepositoryServise qasePublicRepositoryServise;
 
 
     @BeforeClass
     public void openPublicProjectTest(){
-        qaseLoginServise = new QaseLoginServise();
+        QaseLoginServise qaseLoginServise = new QaseLoginServise();
         qaseLoginServise.loginOnQaseMainPageWithValidData();
-        qaseProjectsServise = new QaseProjectsServise();
+        QaseProjectsServise qaseProjectsServise = new QaseProjectsServise();
         Projects publicProject = Projects.builder()
                 .nameProject(namePublicProject)
                 .codeProject(codePublicProject)

@@ -1,7 +1,6 @@
 package org.tms.pages;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -16,11 +15,6 @@ public class QaseProjectsPage extends BasePage {
 
     @FindBy(xpath = "//a[contains(text(),'Projects')]")
     private WebElement menuProjectsButton;
-
-    /*
-    локаторы ниже не превращались в переменные т.к. подобрать не зависящие от названия проекта локаторы я не смогла и под эти
-    локаторы настроены waiter, иначе все будет ломаться
-     */
 
     @FindBy(xpath = "//a[contains(text(),'Public web site')]/ancestor::tr/descendant::*[@class='btn btn-dropdown']")
     private WebElement dropdownPublicProject;
@@ -41,8 +35,6 @@ public class QaseProjectsPage extends BasePage {
     private WebElement valueDeleteDropdownPrivateProject;
 
 
-
-
     @Step ("Get text 'Projects'")
     public String getTextProjects(){
         waitVisibilityOf(textProjects);
@@ -50,83 +42,65 @@ public class QaseProjectsPage extends BasePage {
     }
 
     @Step ("Get projects page")
-    public QaseProjectsPage getProjectsPage(){
+    public void getProjectsPage(){
         waitVisibilityOf(menuProjectsButton);
         menuProjectsButton.click();
-        return this;
     }
 
     @Step("Get page to create a project")
-    public QaseCreateProjectsPage getPageToCreateProject(){
+    public void getPageToCreateProject(){
         waitVisibilityOf(createNewProjectButton);
         createNewProjectButton.click();
-        return new QaseCreateProjectsPage();
     }
 
-
     @Step("Сhose a dropdown for the project")
-    public QaseProjectsPage choseDropdownForProject (WebElement dropdown){
+    public void choseDropdownForProject (WebElement dropdown){
         waitVisibilityOf(dropdown);
         dropdown.click();
-        return this;
     }
 
     @Step("Chose option dropdown")
-    public QaseDeleteProjectPage choseOptionDropdown(WebElement valueOfDropdown){
+    public void choseOptionDropdown(WebElement valueOfDropdown){
         waitVisibilityOf(valueOfDropdown);
         valueOfDropdown.click();
-        return new QaseDeleteProjectPage();
     }
 
     @Step("Click on delete Public project")
-    public QaseDeleteProjectPage clickDropdownDeletePublicProject(){
+    public void clickDropdownDeletePublicProject(){
         choseDropdownForProject(dropdownPublicProject);
         choseOptionDropdown(valueDeleteDropdownPublicProject);
-        return new QaseDeleteProjectPage();
     }
 
     @Step("Click on delete Private project")
-    public QaseDeleteProjectPage clickDropdownDeletePrivateProject(){
+    public void clickDropdownDeletePrivateProject(){
         choseDropdownForProject(dropdownPrivateProject);
         choseOptionDropdown(valueDeleteDropdownPrivateProject);
-        return new QaseDeleteProjectPage();
     }
 
 
     @Step("Displayed Public project")
     public boolean displayedPublicProject() {
         waitVisibilityOf(createNewProjectButton);
-        try {
-            this.namePublicProject.isDisplayed();
-            return false;
-        } catch (NoSuchElementException e) {
-            return true;
-        }
+        return displayedElement(namePublicProject);
     }
 
     @Step("Displayed Public project")
     public boolean displayedPrivateProject() {
         waitVisibilityOf(createNewProjectButton);
-        try {
-            this.namePrivateProject.isDisplayed();
-            return false;
-        } catch (NoSuchElementException e) {
-            return true;
-        }
+        return displayedElement(namePrivateProject);
     }
 
+
     @Step("Click on public project")
-    public QaseRepositoryPage clickOnPublicProject(){
+    public void clickOnPublicProject(){
         waitVisibilityOf(namePublicProject);
         namePublicProject.click();
-        return new QaseRepositoryPage();
     }
 
     @Step("Click on private project")
-    public QaseRepositoryPage clickOnPrivateProject(){
+    public void clickOnPrivateProject(){
         waitVisibilityOf(namePrivateProject);
         namePrivateProject.click();
-        return new QaseRepositoryPage();
     }
 }
 
