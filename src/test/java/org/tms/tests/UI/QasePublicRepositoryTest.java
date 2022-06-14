@@ -39,7 +39,8 @@ public class QasePublicRepositoryTest extends BaseTest{
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewSuiteInPublicRepository(namePublicSuite);
         String actualNameSuiteInPublicRepository = qaseRepositoryPage.getNameSuiteInPublicProject();
         String expectedNameSuiteInPublicRepository = namePublicSuite;
-        Assert.assertEquals(actualNameSuiteInPublicRepository,expectedNameSuiteInPublicRepository);
+        log.info("Create suite in public project");
+        Assert.assertEquals(actualNameSuiteInPublicRepository,expectedNameSuiteInPublicRepository,"Suite didn't create");
     }
 
     @Test (dataProvider = "SuiteData",dataProviderClass = DataProviders.class, groups = "create")
@@ -47,21 +48,24 @@ public class QasePublicRepositoryTest extends BaseTest{
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewSuiteInPublicRepository(suiteNames);
         String actualNamesSuiteInPublicRepository = qaseRepositoryPage.getNameSuiteInPublicProject();
         String expectedNamesSuiteInPublicRepository = namePublicSuite;
-        Assert.assertEquals(actualNamesSuiteInPublicRepository,expectedNamesSuiteInPublicRepository);
+        log.info("Create some suites in public project");
+        Assert.assertEquals(actualNamesSuiteInPublicRepository,expectedNamesSuiteInPublicRepository, "Some suites didn't create");
     }
 
     @Test(dependsOnMethods = "createSuiteInPublicProjectTest",groups = "create")
     public void createCaseInPublicProjectSuiteTest(){
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewCaseInPublicRepository(namePublicCase);
         String actualNameCaseInPublicRepository = qaseRepositoryPage.getNameOfCases(namePublicCase);
-        Assert.assertEquals(actualNameCaseInPublicRepository,namePublicCase);
-    }
+        log.info("Create case in public project");
+        Assert.assertEquals(actualNameCaseInPublicRepository,namePublicCase,"Case didn't create");
+      }
 
     @Test(dependsOnMethods = "createSuiteInPublicProjectTest",dataProvider = "CaseData",dataProviderClass = DataProviders.class, groups = "create")
     public void createSomeCaseInPublicProjectSuiteTest(String nameCases){
         QaseRepositoryPage qaseRepositoryPage = qasePublicRepositoryServise.createNewCaseInPublicRepository(nameCases);
         String actualNamesCaseInPublicRepository = qaseRepositoryPage.getNameOfCases(nameCases);
-        Assert.assertEquals(actualNamesCaseInPublicRepository,nameCases);
+        log.info("Create some cases in public project");
+        Assert.assertEquals(actualNamesCaseInPublicRepository,nameCases,"Some cases didn't create");
     }
 }
 

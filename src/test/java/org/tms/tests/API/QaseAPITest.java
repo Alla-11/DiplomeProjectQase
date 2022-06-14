@@ -22,13 +22,13 @@ public class QaseAPITest {
                                  .access(accessProject)
                                  .build();
         String actualCodeProject = new QaseProjectsAdapter().createProject(project);
-        Assert.assertEquals(actualCodeProject, codePublicProject);
+        Assert.assertEquals(actualCodeProject, codePublicProject,"Public project not created");
     }
 
     @Test(description = "Delete project", dependsOnGroups = "InProject")
     public void deleteProjectTest(){
         Boolean actualStatusDeleteProject = new QaseProjectsAdapter().getStatus(new QaseProjectsAdapter().deleteProject(codePublicProject));
-        Assert.assertTrue(actualStatusDeleteProject);
+        Assert.assertTrue(actualStatusDeleteProject, "Public project not deleted");
     }
 
     @Test(description = "Create suite", dependsOnMethods = "createProjectTest", groups = "InProject")
@@ -37,15 +37,16 @@ public class QaseAPITest {
                 .title(namePublicSuite)
                 .build();
         Boolean actualStatusCreateSuite = new QaseSuitesAdapter().createSuite(codePublicProject, suite);
-        Assert.assertTrue(actualStatusCreateSuite);
+        Assert.assertTrue(actualStatusCreateSuite, "Suite not created");
     }
 
     @Test (description = "Create case", dependsOnMethods = "createProjectTest", groups = "InProject")
     public void createCaseTest(){
         Cases oneCases = Cases.builder().title(namePublicCase).build();
         Boolean actualStatusCreateCase = new QaseCasesAdapter().createCase(codePublicProject, oneCases);
-        Assert.assertTrue(actualStatusCreateCase);
+        Assert.assertTrue(actualStatusCreateCase, "Case not created");
     }
 
 }
+
 

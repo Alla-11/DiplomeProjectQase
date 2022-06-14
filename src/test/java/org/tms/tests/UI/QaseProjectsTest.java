@@ -1,5 +1,6 @@
 package org.tms.tests.UI;
 
+import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -12,6 +13,7 @@ import org.tms.utils.Retry;
 
 import static org.tms.utils.StringConstant.*;
 
+@Log4j2
 public class QaseProjectsTest extends BaseTest {
 
     private QaseProjectsServise qaseProjectsServise;
@@ -34,8 +36,8 @@ public class QaseProjectsTest extends BaseTest {
                                     .build();
         QaseRepositoryPage qaseRepositoryPage = qaseProjectsServise.createPublicProject(publicProject);
         String actualPublicNameProject = qaseRepositoryPage.getNameProject(namePublicProject);
-        String expectedPublicNameProject = namePublicProject;
-        Assert.assertEquals(actualPublicNameProject,expectedPublicNameProject);
+        log.info("Create public project");
+        Assert.assertEquals(actualPublicNameProject,namePublicProject,"Public project didn't create");
     }
 
 
@@ -48,32 +50,34 @@ public class QaseProjectsTest extends BaseTest {
                                           .build();
         QaseRepositoryPage qaseRepositoryPage = qaseProjectsServise.createPrivateProject(privateProject);
         String actualPrivateNameProject = qaseRepositoryPage.getNameProject(namePrivateProject);
-        String expectedPrivateNameProject = namePrivateProject;
-        Assert.assertEquals(actualPrivateNameProject,expectedPrivateNameProject);
+        log.info("Create private project");
+        Assert.assertEquals(actualPrivateNameProject,namePrivateProject,"Private project didn't create");
     }
 
     @Test(dependsOnMethods = "createPublicProjectTest", retryAnalyzer = Retry.class)
     public void showAccessToPublicProjectTest(){
-        Assert.assertTrue(qaseAccessToProjectsServise.showAccessToPublicProject());
-
+        log.info("Access to public project");
+        Assert.assertTrue(qaseAccessToProjectsServise.showAccessToPublicProject(),"No access to public project");
     }
 
     @Test(dependsOnMethods = "createPrivateProjectTest", retryAnalyzer = Retry.class)
     public void showAccessToPrivateProjectTest(){
-        Assert.assertFalse(qaseAccessToProjectsServise.showAccessToPrivateProject());
+        log.info("Access to private project");
+        Assert.assertFalse(qaseAccessToProjectsServise.showAccessToPrivateProject(),"Everyone has access to a private project");
     }
 
     @Test(dependsOnMethods = "showAccessToPublicProjectTest")
     public void deletePublicProjectTest(){
         qaseProjectsServise.deletePublicProject();
-        Assert.assertTrue(qaseProjectsServise.displayedPublicProjectsOnProjectsPage());
-
+        log.info("Public project deleted");
+        Assert.assertTrue(qaseProjectsServise.displayedPublicProjectsOnProjectsPage(),"Public project didn't delete");
     }
 
     @Test(dependsOnMethods = "showAccessToPrivateProjectTest")
     public void deletePrivateProjectTest(){
         qaseProjectsServise.deletePrivateProject();
-        Assert.assertTrue(qaseProjectsServise.displayedPrivateProjectsOnProjectsPage());
+        log.info("Private project deleted");
+        Assert.assertTrue(qaseProjectsServise.displayedPrivateProjectsOnProjectsPage(),"Private project didn't delete");
     }
 }
 

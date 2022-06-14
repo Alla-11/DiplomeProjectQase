@@ -13,6 +13,10 @@ public class QaseLoginServise {
     private final QaseLoginPage qaseLoginPage = new QaseLoginPage();
     private final Users user = new Users();
 
+    public void openPage(){
+        qaseLoginPage.openPage(URL_QASE_MAIN_PAGE);
+    }
+
     @Step ("Autorization on qase.io with valid data")
     public QaseProjectsPage loginOnQaseMainPageWithValidData(){
         qaseLoginPage.openPage(URL_QASE_MAIN_PAGE)
