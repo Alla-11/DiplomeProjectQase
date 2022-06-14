@@ -432,7 +432,21 @@
       <option name="project" value="LOCAL" />
       <updated>1655243739404</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add Jenkinsfile">
+      <created>1655244852767</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1655244852767</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add Jenkinsfile">
+      <created>1655245128467</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1655245128467</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -477,10 +491,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="737" y="232" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1655234833549" />
-    <state x="387" y="0" key="CommitChangelistDialog2" timestamp="1655243738918">
+    <state x="387" y="0" key="CommitChangelistDialog2" timestamp="1655245128020">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="387" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1655243738918" />
+    <state x="387" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1655245128020" />
     <state x="637" y="162" key="EnvironmentVariablesDialog" timestamp="1653997948267">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -537,10 +551,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="216" y="20" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1654618356486" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1655243745519">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1655245133718">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1655243745519" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1655245133718" />
     <state x="868" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1654505137107">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
